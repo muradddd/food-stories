@@ -25,7 +25,7 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     restart: on-failure
-    
+
   web:
     build: .
     restart: "always"
@@ -47,14 +47,14 @@ services:
   #     - "${PGADMIN_DEFAULT_PORT}:80"
   #   restart: on-failure
 
-#   redis:
-#     container_name: redis
-#     image: redis:rc-buster
-#     ports:
-#       - "6379:6379"
-#     restart: on-failure
-#     command: ["redis-server", "--appendonly", "yes"]
-#     hostname: redis
+  redis:
+    container_name: redis
+    image: redis:rc-buster
+    ports:
+      - "6379:6379"
+    restart: on-failure
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
 
 #   mongo:
 #     container_name: mongo
