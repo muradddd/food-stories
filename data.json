@@ -625,13 +625,6 @@
     }
 },
 {
-    "model": "django_celery_beat.periodictasks",
-    "pk": 1,
-    "fields": {
-        "last_update": "2020-01-21T00:53:18.139"
-    }
-},
-{
     "model": "django_celery_beat.periodictask",
     "pk": 1,
     "fields": {
