@@ -17,17 +17,17 @@ from rest_framework.views import APIView
 
 
 
-last_4_stories = Story.objects.order_by('created_at').reverse()[:4]
-first_3_categories = Category.objects.order_by('created_at')[:3]
-last_2_recipes = Recipe.objects.order_by('created_at').reverse()[:2]
+# last_4_stories = Story.objects.order_by('created_at').reverse()[:4]
+# first_3_categories = Category.objects.order_by('created_at')[:3]
+# last_2_recipes = Recipe.objects.order_by('created_at').reverse()[:2]
 
-categories = Category.objects.all()
-recipes = Recipe.objects.all()
-stories = Story.objects.all()
+# categories = Category.objects.all()
+# recipes = Recipe.objects.all()
+# stories = Story.objects.all()
 
-stories_count = Story.objects.all().count()
-recipes_count = Recipe.objects.all().count()
-users_count = User.objects.all().count()
+# stories_count = Story.objects.all().count()
+# recipes_count = Recipe.objects.all().count()
+# users_count = User.objects.all().count()
 
 
 def home_page(request):

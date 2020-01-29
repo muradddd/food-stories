@@ -59,8 +59,9 @@ github-da yeni repo acirig
 
 Oz komputerimiz kecid etdiyimiz serverde
 - git clone ${yeni proyektin url-i}
-- cd ${project_name} #()
+- cd ${project_name} #(proyektin oldugu foldere kecirik)
 - docker-compose up -d --build #(serverde docker-i up edirik)
+- docker ps -a #(web servisin oldugu container id copy edirik)
 - docker exec -it ${docker-container id} bash #(docker-deki komputerimize kecirik)
 - manage.py migrate
 - manage.py loaddata data.json
