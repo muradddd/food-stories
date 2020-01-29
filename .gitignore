@@ -1,0 +1,7 @@
+.v/
+.mongodb/
+.init-mongo.js/
+.mogodb/
+.pgadmin/
+.postgresdb/
+.vscode/
