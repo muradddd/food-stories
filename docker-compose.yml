@@ -29,10 +29,14 @@ services:
   web:
     build: .
     restart: "always"
+    env_file: 
+      - .env
     ports:
       - "8000:8000"
     volumes:
       - .:/code/
+    links: 
+      - postgres
     depends_on:
       - "postgres"
 

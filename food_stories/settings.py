@@ -104,7 +104,19 @@ TEMPLATES = [
 ROOT_URLCONF = 'food_stories.urls'
 WSGI_APPLICATION = '``food_stories``.wsgi.application'
 
-if DEBUG:
+
+if PROD:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'USER': os.environ.get('POSTGRES_USER'),
+                'NAME': os.environ.get('POSTGRES_DB'),
+                'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+                'HOST': os.environ.get('POSTGRES_HOST'),
+                'PORT': os.environ.get('POSTGRES_PORT'),
+            }
+    }
+else:
     DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql',
@@ -123,18 +135,6 @@ if DEBUG:
         #     'HOST': '127.0.0.1'
         # }
     }
-elif PROD:
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'USER': os.environ.get('POSTGRES_USER'),
-                'NAME': os.environ.get('POSTGRES_DB'),
-                'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-                'HOST': os.environ.get('POSTGRES_HOST'),
-                'PORT': os.environ.get('POSTGRES_PORT'),
-            }
-    }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
