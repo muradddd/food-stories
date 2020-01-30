@@ -102,7 +102,7 @@ TEMPLATES = [
 
 
 ROOT_URLCONF = 'food_stories.urls'
-WSGI_APPLICATION = '``food_stories``.wsgi.application'
+WSGI_APPLICATION = 'food_stories.wsgi.application'
 
 
 if PROD:
