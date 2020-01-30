@@ -48,7 +48,7 @@ services:
       dockerfile: celery.dockerfile
     volumes:
       - .:/code
-    command: celery --app=todo_application.celery:app worker -B --loglevel=INFO
+    command: celery --app=food_stories.celery:app worker -B --loglevel=INFO
     depends_on: 
       - "redis"
       # - "postgres"
