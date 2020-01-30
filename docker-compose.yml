@@ -58,7 +58,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: nginx:latest
+    image: jwilder/nginx-proxy
     restart: "always"
     ports:
       - "80:80"
