@@ -17,32 +17,22 @@ from rest_framework.views import APIView
 
 
 
-# last_4_stories = Story.objects.order_by('created_at').reverse()[:4]
-# first_3_categories = Category.objects.order_by('created_at')[:3]
-# last_2_recipes = Recipe.objects.order_by('created_at').reverse()[:2]
-
-# categories = Category.objects.all()
-# recipes = Recipe.objects.all()
-# stories = Story.objects.all()
-
-# stories_count = Story.objects.all().count()
-# recipes_count = Recipe.objects.all().count()
-# users_count = User.objects.all().count()
 
 
-def home_page(request):
-    context = {
-        'last_4_stories' : last_4_stories,
-        'first_3_categories' : first_3_categories,
-        'last_2_recipes' : last_2_recipes,
-        'categories' : categories,
-        'recipes' : recipes,
-        'stories' : stories,
-        'stories_count' : stories_count,
-        'recipes_count' : recipes_count,
-        'authors_count' : users_count,
-    }
-    return render(request, 'index.html', context)
+
+# def home_page(request):
+#     context = {
+#         'last_4_stories' : last_4_stories,
+#         'first_3_categories' : first_3_categories,
+#         'last_2_recipes' : last_2_recipes,
+#         'categories' : categories,
+#         'recipes' : recipes,
+#         'stories' : stories,
+#         'stories_count' : stories_count,
+#         'recipes_count' : recipes_count,
+#         'authors_count' : users_count,
+#     }
+#     return render(request, 'index.html', context)
 
 def about_page(request):
     return render(request, 'about.html')
@@ -60,6 +50,25 @@ def email_subscribers(request):
 def single(request):
     return render(request, 'single.html')
 
+
+class HomePageView(TemplateView):
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {
+            'last_4_stories' : Story.objects.order_by('created_at').reverse()[:4],
+            'first_3_categories' : Category.objects.order_by('created_at')[:3],
+            'last_2_recipes' : Recipe.objects.order_by('created_at').reverse()[:2],
+            'categories' : Category.objects.all(),
+            'recipes' : Recipe.objects.all(),
+            'stories' : Story.objects.all(),
+            'stories_count' : Story.objects.all().count(),
+            'recipes_count' : Recipe.objects.all().count(),
+            'authors_count' : User.objects.all().count(),
+        }
+        return context
+    
 
 
 
