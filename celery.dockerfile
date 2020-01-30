@@ -6,4 +6,4 @@ ADD . .
 
 RUN pip install celery==4.3.0
 
-CMD [ "celery", "-A", "todo_project", "worker", "--beat", "--scheduler", "django", "--loglevel=info" ]
+CMD [ "celery", "-A", "food_stories", "worker", "--beat", "--scheduler", "django", "--loglevel=info" ]
