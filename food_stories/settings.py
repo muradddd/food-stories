@@ -105,27 +105,27 @@ ROOT_URLCONF = 'food_stories.urls'
 WSGI_APPLICATION = 'food_stories.wsgi.application'
 
 
-if PROD:
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'USER': os.environ.get('POSTGRES_USER'),
-                'NAME': os.environ.get('POSTGRES_DB'),
-                'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-                'HOST': os.environ.get('POSTGRES_HOST'),
-                'PORT': os.environ.get('POSTGRES_PORT'),
-            }
-    }
-else:
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'food-stories',
-                'USER': 'murad.rustemzade',
-                'PASSWORD': '1',
-                'PORT': '5432',
-                'HOST': '127.0.0.1'
-            },
+# if PROD:
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'USER': os.environ.get('POSTGRES_USER'),
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT'),
+        }
+}
+# else:
+    # DATABASES = {
+    #         'default': {
+    #             'ENGINE': 'django.db.backends.postgresql',
+    #             'NAME': 'food-stories',
+    #             'USER': 'murad.rustemzade',
+    #             'PASSWORD': '1',
+    #             'PORT': '5432',
+    #             'HOST': '127.0.0.1'
+    #         },
         # 'mysql': {
         #     'ENGINE': 'django.db.backends.mysql',
         #     'NAME': 'food_stories',
@@ -134,7 +134,7 @@ else:
         #     'PORT': '3310',
         #     'HOST': '127.0.0.1'
         # }
-    }
+    # }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
