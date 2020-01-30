@@ -201,20 +201,20 @@ EMAIL_USE_TLS = True
 
 
 
-if PROD:
-    CELERY_BROKER_URL = 'redis://redis:6379'
-    CELERY_RESULT_BACKEND = 'redis://redis:6379'
-    CELERY_ACCEPT_CONTENT = ['application/json']
-    CELERY_TASK_SERIALIZER = 'json'
-    CELERY_RESULT_SERIALIZER = 'json'
-    CELERY_TIMEZONE = 'Asia/Baku'
-else:
-    CELERY_BROKER_URL = 'redis://localhost:6379'
-    CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-    CELERY_ACCEPT_CONTENT = ['application/json']
-    CELERY_TASK_SERIALIZER = 'json'
-    CELERY_RESULT_SERIALIZER = 'json'
-    CELERY_TIMEZONE = 'Asia/Baku'
+# if PROD:
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Baku'
+# else:
+#     CELERY_BROKER_URL = 'redis://localhost:6379'
+#     CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+#     CELERY_ACCEPT_CONTENT = ['application/json']
+#     CELERY_TASK_SERIALIZER = 'json'
+#     CELERY_RESULT_SERIALIZER = 'json'
+#     CELERY_TIMEZONE = 'Asia/Baku'
 
 # from celery.schedules import crontab
 
