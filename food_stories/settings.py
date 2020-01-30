@@ -196,7 +196,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tech.academy.user2@gmail.com'
 EMAIL_HOST_PASSWORD = 'fsqcyadagqipthcz'
 EMAIL_PORT = 587
-EMAIL_USE_TLS   = True
+EMAIL_USE_TLS = True
 
 
 

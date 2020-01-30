@@ -1,4 +1,3 @@
-
 Deploya hazirliq
 virtualenv aktiv edirik
 - ./manage.py dumpdata --natural-foreign \
@@ -13,6 +12,9 @@ Oz komputerimiz
 `settings.py`-da DATABASE HOST üçün `docker-compose.yml` faylında postgresi işlədən servisin adını yazırıq
 `settings.py`-da ALLOWED_HOST = ["*"] edirik
 `settings.py`-da STATIC_ROOT = os.path.join(BASE_DIR, 'static') yaziriq
+`settings.py`-da DEBUG = False edirik
+`nginx` adli folderi config edirik
+- ./manage.py collectstatic
 - sudo docker-compose up -d --build
 
 
@@ -65,5 +67,3 @@ Oz komputerimiz kecid etdiyimiz serverde
 - docker exec -it ${docker-container id} bash      #(docker-deki komputerimize kecirik)
 - ./manage.py migrate
 - ./manage.py loaddata data.json
-
-

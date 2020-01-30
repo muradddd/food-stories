@@ -5,3 +5,5 @@
 .pgadmin/
 .postgresdb/
 .vscode/
+*.pyc
+__pycache__/
