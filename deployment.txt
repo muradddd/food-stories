@@ -19,7 +19,7 @@ Oz komputerimiz
 
 
 Google server 
-+ sudo su -       #(root user-ə keçmək üçün)
++ sudo su -       #(root user-ə keçmək üçün, dash mutleqdir)
 
 
 Oz komputerimiz
