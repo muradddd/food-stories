@@ -111,7 +111,7 @@ if DEBUG:
                 'USER': 'murad.rustemzade',
                 'PASSWORD': '1',
                 'PORT': '5432',
-                'HOST': 'postgres'
+                'HOST': '127.0.0.1'
             },
         # 'mysql': {
         #     'ENGINE': 'django.db.backends.mysql',

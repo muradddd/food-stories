@@ -7,7 +7,7 @@ from .routers import router
 app_name = 'stories'
 
 urlpatterns = [
-    path('', home_page, name = 'home' ),
+    path('', HomePageView.as_view(), name = 'home' ),
     path('about/', about_page, name = 'about' ),
     path('contact/', ContactCreateView.as_view(), name = 'contact' ),
     path('stories/', stories_page, name = 'stories' ),
