@@ -117,14 +117,14 @@ DATABASES = {
         }
 }
 # else:
-    # DATABASES = {
-    #         'default': {
-    #             'ENGINE': 'django.db.backends.postgresql',
-    #             'NAME': 'food-stories',
-    #             'USER': 'murad.rustemzade',
-    #             'PASSWORD': '1',
-    #             'PORT': '5432',
-    #             'HOST': '127.0.0.1'
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'food-stories',
+            'USER': 'murad.rustemzade',
+            'PASSWORD': '1',
+            'PORT': '5432',
+            'HOST': 'postgres'
     #         },
         # 'mysql': {
         #     'ENGINE': 'django.db.backends.mysql',

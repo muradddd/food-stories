@@ -26,7 +26,7 @@ services:
   web:
     build: .
     container_name: web
-    restart: "always"
+    restart: always
     env_file: 
       - .env
     ports:
@@ -48,19 +48,19 @@ services:
       dockerfile: celery.dockerfile
     volumes:
       - .:/code
-    command: celery --app=food_stories.celery:app worker -B --loglevel=INFO
-    depends_on: 
-      - "redis"
-      # - "postgres"
     links:
+      - postgres
       - redis
-      # - "postgres"
+    depends_on: 
+      - postgres
+      - redis
+
 
 
   nginx:
     container_name: nginx
     image: jwilder/nginx-proxy
-    restart: "always"
+    restart: always
     ports:
       - "80:80"
     volumes:

@@ -6,4 +6,4 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
-# CMD [ "celery", "-A", "food_stories", "worker", "--beat", "--scheduler", "django", "--loglevel=info" ]
+CMD [ "celery", "-A", "food_stories", "worker", "--beat", "--scheduler", "django", "--loglevel=info" ]
