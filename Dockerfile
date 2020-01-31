@@ -1,9 +1,8 @@
 FROM python:3.6
-RUN mkdir -p /code/
-WORKDIR /code/
 
-ADD . .
-
+COPY requirements.txt /code/requirements.txt
+WORKDIR /code
 RUN pip install -r requirements.txt
+ADD . .
 
 CMD [ "gunicorn", "--bind", "0.0.0.0", "-p", "8000",  "food_stories.wsgi" ]
