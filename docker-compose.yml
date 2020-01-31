@@ -46,6 +46,8 @@ services:
     build: 
       context: .
       dockerfile: celery.dockerfile
+    env_file: 
+      - .env
     volumes:
       - .:/code
     links:
