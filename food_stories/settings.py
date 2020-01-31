@@ -23,8 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xk1v_ffrz$f9sgcd97y8(1a3%8=w$cf1tm2is&fwr-ze$97@h@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = not os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", False)
 PROD = not DEBUG
+print('DEBUG',DEBUG, type(DEBUG))
+print('PROD',PROD, type(PROD))
+
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -105,36 +109,28 @@ ROOT_URLCONF = 'food_stories.urls'
 WSGI_APPLICATION = 'food_stories.wsgi.application'
 
 
-# if PROD:
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'USER': os.environ.get('POSTGRES_USER'),
-            'NAME': os.environ.get('POSTGRES_DB'),
-            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-            'HOST': os.environ.get('POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT'),
+if PROD:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'USER': os.environ.get('POSTGRES_USER'),
+                'NAME': os.environ.get('POSTGRES_DB'),
+                'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+                'HOST': os.environ.get('POSTGRES_HOST'),
+                'PORT': os.environ.get('POSTGRES_PORT'),
+            }
+    }
+else:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'food-stories',
+                'USER': 'murad.rustemzade',
+                'PASSWORD': '1',
+                'PORT': '5432',
+                'HOST': '127.0.0.1'
+                },
         }
-}
-# else:
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'food-stories',
-            'USER': 'murad.rustemzade',
-            'PASSWORD': '1',
-            'PORT': '5432',
-            'HOST': 'postgres'
-            },
-        # 'mysql': {
-        #     'ENGINE': 'django.db.backends.mysql',
-        #     'NAME': 'food_stories',
-        #     'USER': 'root',
-        #     'PASSWORD': '1',
-        #     'PORT': '3310',
-        #     'HOST': '127.0.0.1'
-        # }
-    # }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -174,11 +170,11 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 if PROD:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static')
     ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -201,20 +197,20 @@ EMAIL_USE_TLS = True
 
 
 
-# if PROD:
-CELERY_BROKER_URL = 'redis://redis:6379'
-CELERY_RESULT_BACKEND = 'redis://redis:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Baku'
-# else:
-#     CELERY_BROKER_URL = 'redis://localhost:6379'
-#     CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-#     CELERY_ACCEPT_CONTENT = ['application/json']
-#     CELERY_TASK_SERIALIZER = 'json'
-#     CELERY_RESULT_SERIALIZER = 'json'
-#     CELERY_TIMEZONE = 'Asia/Baku'
+if PROD:
+    CELERY_BROKER_URL = 'redis://redis:6379'
+    CELERY_RESULT_BACKEND = 'redis://redis:6379'
+    CELERY_ACCEPT_CONTENT = ['application/json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TIMEZONE = 'Asia/Baku'
+else:
+    CELERY_BROKER_URL = 'redis://localhost:6379'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+    CELERY_ACCEPT_CONTENT = ['application/json']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_TIMEZONE = 'Asia/Baku'
 
 # from celery.schedules import crontab
 
