@@ -125,7 +125,7 @@ DATABASES = {
             'PASSWORD': '1',
             'PORT': '5432',
             'HOST': 'postgres'
-    #         },
+            },
         # 'mysql': {
         #     'ENGINE': 'django.db.backends.mysql',
         #     'NAME': 'food_stories',
