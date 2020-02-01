@@ -5,5 +5,5 @@ WORKDIR /code
 RUN pip install -r requirements.txt
 ADD . .
 
-
-CMD [ "celery", "-A", "food_stories", "worker", "--beat", "--scheduler", "django", "--loglevel=info" ]
+ENTRYPOINT [ "/bin/sh" ]
+CMD [ "./docker.celery.sh" ]
