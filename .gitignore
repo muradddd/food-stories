@@ -1,4 +1,5 @@
 .v/
+.venv/
 .mongodb/
 .init-mongo.js/
 .mogodb/
