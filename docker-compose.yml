@@ -16,12 +16,16 @@ services:
 
   redis:
     container_name: redis
-    image: redis:rc-buster
+    build:
+      context: .
+      dockerfile: redis.dockerfile
+    restart: "always"
+    
     ports:
-      - "6379:6379"
-    restart: on-failure
-    command: ["redis-server", "--appendonly", "yes"]
-    hostname: redis
+      - 6379:6379
+    volumes:
+      - ./redisdb:/var/lib/redis
+    env_file: .env
 
   web:
     build: .
