@@ -196,8 +196,9 @@ EMAIL_USE_TLS = True
 
 
 if PROD:
-    CELERY_BROKER_URL = 'redis://redis:6379'
-    CELERY_RESULT_BACKEND = 'redis://redis:6379'
+    REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
+    CELERY_BROKER_URL = f'redis://:{REDIS_PASSWORD}@redis:6379'
+    CELERY_RESULT_BACKEND = f'redis://:{REDIS_PASSWORD}@redis:6379'
     CELERY_ACCEPT_CONTENT = ['application/json']
     CELERY_TASK_SERIALIZER = 'json'
     CELERY_RESULT_SERIALIZER = 'json'
